@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure React</title>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <div id="root2"></div>
+    
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+<script type="text/babel">
+
+    function App(){
+        return <h1>Welcome to React Tutrial</h1>;
+    }
+
+    const container=document.querySelector('#root');
+    const root=ReactDOM.createRoot(container);
+    root.render(<App/>);    
+</script>
+
+<script>
+    function App(){
+         //const time=new Date().toLocaleTimeString();
+         const [time,setTime]=React.useState(new Date().toLocaleTimeString());
+
+         React.useEffect(function () {
+          setInterval(function () {
+            setTime(new Date().toLocaleTimeString());
+          }, 1000);
+        }, []);
+        return React.createElement('header',null,`Hello current Time is ${time}`);
+    }
+
+    const container2=document.querySelector("#root2");
+    const root2=ReactDOM.createRoot(container2);
+    root2.render(React.createElement(App));
+</script>
+</html>
