@@ -168,3 +168,21 @@ const data = [
 
 // const [firstgenres,secondgenres,thirdgenres,fourthgenres,fivthgenres]=arr;
 // console.log(firstgenres,secondgenres,thirdgenres,fourthgenres,fivthgenres);
+
+
+
+
+//sorting the array
+
+//const arr=[7,3,9,2,1,10];
+// const sortedarray=arr.sort((a,b)=> a-b);     // for sorting in accessinding order
+// const arr=['akhil','aman','om','akshat','yash'];
+// const sortedarray=arr.sort();
+// console.log(sortedarray);
+
+
+const arr=[7,3,9,2,1,10];
+const newarr=arr.slice();
+
+console.log(arr);
+console.log(newarr);
