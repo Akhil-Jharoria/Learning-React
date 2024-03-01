@@ -83,14 +83,14 @@ function Menu() {
     </main>
   );
 }
-function Pizza(props) {
+function Pizza({ singlepizza }) {
   return (
-    <li className="pizza">
-      <img src={props.singlepizza.photoName} alt={props.singlepizza.name} />
+    <li className={`pizza ${singlepizza.soldOut ? "sold-out" : " "} `}>
+      <img src={singlepizza.photoName} alt={singlepizza.name} />
       <div>
-        <h3>{props.singlepizza.name}</h3>
-        <p>{props.singlepizza.ingredients}</p>
-        <span>{props.singlepizza.price}</span>
+        <h3>{singlepizza.name}</h3>
+        <p>{singlepizza.ingredients}</p>
+        <span>{singlepizza.soldOut ? "SOLD OUT" : singlepizza.price}</span>
       </div>
     </li>
   );
