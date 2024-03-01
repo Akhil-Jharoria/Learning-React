@@ -69,12 +69,17 @@ function Menu() {
   return (
     <main className="menu">
       <h2> Menu</h2>
-
-      <ul className="pizzas">
-        {pizzaData.map((eachpizza) => (
-          <Pizza singlepizza={eachpizza} key={eachpizza.name} />
-        ))}
-      </ul>
+      <>
+        <p>
+          Authentic Italian cuisine. 6 creative dishes to choose from. All from
+          our stone oven, all organic, all delicious.
+        </p>
+        <ul className="pizzas">
+          {pizzaData.map((eachpizza) => (
+            <Pizza singlepizza={eachpizza} key={eachpizza.name} />
+          ))}
+        </ul>
+      </>
     </main>
   );
 }
