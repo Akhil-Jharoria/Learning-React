@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Logo from "./Logo";
+import PackingList from "./PackingList";
+import Stats from "./Stats";
 
-function App() {
+export default function App() {
+  const [items, setItems] = useState([]);
+
+  function handleItems(item) {
+    setItems([...items, item]);
+  }
+
+  function handleDelete(id) {
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
+
+  function handleClear() {
+    const confirm = window.confirm("Are you sure to delete all items?");
+
+    if (confirm) setItems([]);
+  }
+
+  function handleToggle(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Logo onAddItems={handleItems} />
+      <PackingList
+        items={items}
+        handleDelete={handleDelete}
+        handleToggle={handleToggle}
+        handleClear={handleClear}
+      />
+      <Stats items={items} />
+    </>
   );
 }
-
-export default App;
