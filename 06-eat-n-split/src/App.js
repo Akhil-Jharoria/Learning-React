@@ -131,6 +131,7 @@ export default function App() {
           handleTotalBill={handleTotalBill}
           handleyourBill={handleyourBill}
           handleSplitSubmit={handleSplitSubmit}
+          key={selectedFriend.id}
         />
       )}
     </div>
