@@ -14,13 +14,15 @@ const startContainer = {
 StartRating.propTypes = {
   maxRating: PropTypes.number.isRequired,
   size: PropTypes.number.isRequired,
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  onsetRating: PropTypes.func,
 };
 
 export default function StartRating({
   maxRating = 5,
   size = 48,
   color = "#f7ac16",
+  onsetRating,
 }) {
   const [rating, setRating] = useState(0);
   const [tempRating, settempRating] = useState(0);
@@ -34,6 +36,7 @@ export default function StartRating({
 
   function handleRating(i) {
     setRating(i + 1);
+    onsetRating(i + 1);
   }
 
   function hoverIn(i) {
@@ -43,6 +46,7 @@ export default function StartRating({
   function hoverOut() {
     settempRating(0);
   }
+
   return (
     <div style={containerStyle}>
       <div style={startContainer}>

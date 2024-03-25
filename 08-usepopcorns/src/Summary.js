@@ -14,13 +14,13 @@ export default function Summary({ watchedMovies }) {
           <span> movies</span>
         </p>
         <p>
-          <span>⭐️{avgImdbRating}</span>
+          <span>⭐️{avgImdbRating.toFixed(2)}</span>
         </p>
         <p>
-          <span>🌟{avgUserRating}</span>
+          <span>🌟{avgUserRating.toFixed(2)}</span>
         </p>
         <p>
-          <span>⏳{avgRuntime} min</span>
+          <span>⏳{avgRuntime.toFixed(2)} min</span>
         </p>
       </div>
     </div>
