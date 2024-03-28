@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Loader from "./Loader";
 import StartRating from "./StartRating";
+import { useKeyPress } from "./useKeyPress";
 
 const Key = "ebe9c8ec";
 export default function MoviesDetails({
@@ -12,6 +13,11 @@ export default function MoviesDetails({
   const [movie, setmovie] = useState({});
   const [loading, setloading] = useState(false);
   const [userRating, setuserRating] = useState("");
+
+  // const countUserRating = useRef(0);
+
+  //custom hooks
+  useKeyPress("Escape", onClose);
 
   const iswatched = watchedMovies
     .map((curr) => curr.imdbId)
@@ -43,26 +49,12 @@ export default function MoviesDetails({
       imdbRating: Number(imdbRating),
       runtime: Number(runtime.split(" ").at(0)),
       userRating: Number(userRating),
+      // countrating: countUserRating.current,
     };
     onAddwatch(newWatchmovie);
     onClose();
   }
 
-  useEffect(
-    function () {
-      function callback(event) {
-        if (event.code === "Escape") {
-          onClose();
-        }
-      }
-      document.addEventListener("keydown", callback);
-
-      return function () {
-        document.removeEventListener("keydown", callback);
-      };
-    },
-    [onClose]
-  );
   useEffect(
     function () {
       async function getDetails() {

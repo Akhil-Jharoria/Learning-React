@@ -7,7 +7,7 @@ export default function WatchList({ movies, onDelete }) {
         <WatchedMovieList
           movie={movie}
           onDelete={onDelete}
-          key={movie.imdbID}
+          key={movie.imdbId}
         />
       ))}
     </ul>
