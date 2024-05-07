@@ -1,12 +1,12 @@
-function Progress({ index, numQuestion, Score, totalScore, answer }) {
+import { useQuize } from "./Context/QuizeContext";
+
+function Progress() {
+  const { index, length, Score, totalScore, answer } = useQuize();
   return (
     <div className="progress">
-      <progress
-        max={numQuestion}
-        value={index + Number(answer !== null)}
-      ></progress>
+      <progress max={length} value={index + Number(answer !== null)}></progress>
       <p>
-        <strong>{index + 1}</strong> / {numQuestion}
+        <strong>{index + 1}</strong> / {length}
       </p>
       <p>
         {Score}/{totalScore}

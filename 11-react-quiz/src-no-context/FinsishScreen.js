@@ -1,7 +1,4 @@
-import { useQuize } from "./Context/QuizeContext";
-
-function FinsishScreen() {
-  const { Score, highScore, totalScore, dispatch } = useQuize();
+function FinsishScreen({ Score, totalScore, highScore, dispatch }) {
   const percentage = (Score / totalScore) * 100;
   let emoji;
   if (percentage === 100) emoji = "🥇";
