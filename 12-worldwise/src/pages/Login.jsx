@@ -1,5 +1,5 @@
-import PageNav from "../components/PageNav";
 import styles from "./Login.module.css";
+import PageNav from "../components/PageNav";
 import { useEffect, useState } from "react";
 
 import { useAuth } from "../contexts/FakeAuthContext";
